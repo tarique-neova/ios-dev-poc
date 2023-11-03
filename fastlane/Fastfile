@@ -1,17 +1,23 @@
-# fastlane/Fastfile
-default_platform :ios
-
 platform :ios do
   before_all do
     setup_circle_ci
   end
 
-#  desc "Test iOS"
-#  lane :test do
-#    run_tests(clean: true,
-#              scheme: "ios-dev-poc",
-#              device: "iPhone 13 Pro")
-#  end
+  desc "Load ASC API Key information to use in subsequent lanes"
+  lane :load_asc_api_key do
+    app_store_connect_api_key(
+      key_id: "WXYFK8CF5D,
+      issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
+      key_content: "-----BEGIN PRIVATE KEY-----
+MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO
+44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOp
+Dqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXu
+qJmmAkcC
+-----END PRIVATE KEY-----",
+      is_key_content_base64: true,
+      in_house: false # detecting this via ASC private key not currently supported
+    )
+  end
 
   desc "Upload Release to App Store"
   lane :upload_release do
@@ -24,7 +30,7 @@ platform :ios do
         initial_build_number: "$CIRCLE_BUILD_NUM",
         version: get_version_number(xcodeproj: "ios-dev-poc.xcodeproj"),
         live: false
-      ) + 1,
+      ),
     )
     # Set up Distribution code signing and build the app
     match(type: "appstore")
