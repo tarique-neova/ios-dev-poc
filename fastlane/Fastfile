@@ -6,6 +6,11 @@ platform :ios do
     setup_circle_ci
   end
 
+  desc "Test iOS"
+  lane :tests do
+    run_tests(scheme: "ios-dev-poc")
+  end
+
   desc "Upload Release to App Store"
   lane :upload_release do
     # Get the version number from the project and check against
