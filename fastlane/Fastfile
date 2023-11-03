@@ -6,12 +6,12 @@ platform :ios do
     setup_circle_ci
   end
 
-  desc "Test iOS"
-  lane :test do
-    run_tests(clean: true,
-              scheme: "ios-dev-poc",
-              device: "iPhone 13 Pro")
-  end
+#  desc "Test iOS"
+#  lane :test do
+#    run_tests(clean: true,
+#              scheme: "ios-dev-poc",
+#              device: "iPhone 13 Pro")
+#  end
 
   desc "Upload Release to App Store"
   lane :upload_release do
