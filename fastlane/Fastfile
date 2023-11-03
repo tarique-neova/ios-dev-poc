@@ -8,7 +8,8 @@ platform :ios do
 
   desc "Test iOS"
   lane :test do
-    run_tests(scheme: "ios-dev-poc")
+    run_tests(scheme: "ios-dev-poc",
+    devices: ["iPhone 15", "iPad Air"])
   end
 
   desc "Upload Release to App Store"
