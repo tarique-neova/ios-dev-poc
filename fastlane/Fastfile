@@ -9,8 +9,9 @@ lane :use_cert do
   match(
     type: "appstore",
     readonly: true,
-    force_for_new_devices: true,
-    app_identifier: "com.neovasolutions.ios-dev-poc"
+    force_for_new_devices: false,
+    app_identifier: "com.neovasolutions.ios-dev-poc",
+    git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
   )
   
   # Add other actions related to your lane if needed
