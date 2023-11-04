@@ -1,42 +1,20 @@
 platform :ios do
+
   before_all do
     setup_circle_ci
   end
 
-lane :release do
-  app_store_connect_api_key(
-    key_id: "WXYFK8CF5D",
-    issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
-    key_filepath: "AuthKey_WXYFK8CF5D.p8",
-    duration: 1200, # optional (maximum 1200)
-    in_house: false # optional but may be required if using match/sigh
-  )
-
-  # Automatically loads Actions.lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
-  pilot
-end
-
-  desc "Upload Release to App Store"
-  lane :upload_release do
-    # Get the version number from the project and check against
-    # the latest build already available on App Store Connect, then
-    # increase the build number by 1. If no build is available
-    # for that version, then start at 1
+  lane :release do
     increment_build_number(
       build_number: app_store_build_number(
-        initial_build_number: "$CIRCLE_BUILD_NUM",
+        initial_build_number: "0.1",
         version: get_version_number(xcodeproj: "ios-dev-poc.xcodeproj"),
         live: false
-      ),
+      ) +1,
     )
-    # Set up Distribution code signing and build the app
-    match(type: "appstore")
+    # Build your iOS app
     gym(scheme: "ios-dev-poc")
-    # Upload the binary to App Store Connect
-    app_store_connect_api_key
-    deliver(
-      submit_for_review: false,
-      force: true
-    )
+    # Upload the app to App Store Connect
+    pilot
   end
 end
