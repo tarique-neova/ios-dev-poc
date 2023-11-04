@@ -65,6 +65,7 @@ platform :ios do
     gym(scheme: "ios-dev-poc",  # Your Xcode scheme
         export_method: "ad-hoc", 
         clean: true,
+        xcargs: "CODE_SIGN_IDENTITY='' AD_HOC_CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO -allowProvisioningUpdates",
       # skip_codesigning: true,
         skip_profile_detection: true,
         codesigning_identity: "iPhone Distribution: Shashi Ranjan (2ZBVR8AP3W)",
