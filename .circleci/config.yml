@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - run: bundle install
+      - run: fastlane spaceship
       - run:
           name: Fastlane
           command: bundle exec fastlane upload_release
