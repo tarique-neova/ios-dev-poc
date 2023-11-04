@@ -21,7 +21,8 @@ platform :ios do
       development: false,
       team_id: "2ZBVR8AP3W",
       provisioning_name: "distribution",
-      app_identifier: "com.neovasolutions.ios-dev-poc"
+      app_identifier: "com.neovasolutions.ios-dev-poc",
+      readonly: true
   )
     # Build your iOS app
     gym(scheme: "ios-dev-poc")
