@@ -62,7 +62,7 @@ platform :ios do
   )
 
     # Build your iOS app
-    gym(scheme: "YourScheme",  # Your Xcode scheme
+    gym(scheme: "ios-dev-poc",  # Your Xcode scheme
         export_method: "app-store",  # The export method (app-store, ad-hoc, package, etc.)
         export_options: {
         method: "app-store",  # The export method again (it should match the export_method above)
