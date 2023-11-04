@@ -31,22 +31,22 @@ platform :ios do
     # Add other actions related to your lane if needed
   end
 
-  # desc "Update Signing Setting"
-  #   lane :update_sign_set do
+  desc "Update Signing Setting"
+    lane :update_sign_set do
 
-  #       update_code_signing_settings(
-  #         use_automatic_signing: true,
-  #         targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
-  #         code_sign_identity: "Apple Development", # replace with name of code signing identity if different
-  #         bundle_identifier: "com.neovasolutions.ios-dev-poc",
-  #         profile_name: "sigh_com.neovasolutions.ios-dev-poc_development_profile-name",
-  #         build_configurations: ["Release"], # only toggle code signing settings for Release configurations
-  #         path: "ios-dev-poc.xcodeproj",
-  #         team_id: "2ZBVR8AP3W"
+        update_code_signing_settings(
+          use_automatic_signing: true,
+          targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
+          code_sign_identity: "Apple Distribution", # replace with name of code signing identity if different
+          bundle_identifier: "com.neovasolutions.ios-dev-poc",
+          profile_name: "match AppStore com.neovasolutions.ios-dev-poc",
+          build_configurations: ["Release"], # only toggle code signing settings for Release configurations
+          path: "ios-dev-poc.xcodeproj",
+          team_id: "2ZBVR8AP3W"
           
-  #       )
+        )
 
-  #   end
+    end
 
 
   lane :upload_release do
@@ -65,12 +65,12 @@ platform :ios do
     gym(scheme: "ios-dev-poc",
         # skip_profile_detection: true,
         configuration: "Release",
-        export_options: {
-        method: "development",
-          provisioningProfiles: {
-              "com.neovasolutions.ios-dev-poc" => "match Development com.neovasolutions.ios-dev-poc" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
-          }
-        }
+        # export_options: {
+        # method: "app-store",
+        #   provisioningProfiles: {
+        #       "com.neovasolutions.ios-dev-poc" => "match AppStore com.neovasolutions.ios-dev-poc" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
+        #   }
+        # }
         
       )
     # Upload the app to App Store Connect
