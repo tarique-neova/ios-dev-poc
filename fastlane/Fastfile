@@ -35,13 +35,13 @@ platform :ios do
     lane :update_sign_set do
 
         update_code_signing_settings(
-          use_automatic_signing: true,
+          use_automatic_signing: false,
           targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
-          # code_sign_identity: "Apple Distribution", # replace with name of code signing identity if different
+          code_sign_identity: "Apple Development", # replace with name of code signing identity if different
           bundle_identifier: "com.neovasolutions.ios-dev-poc",
-          # profile_name: "fastlane-generated-dist-profile",
-          # build_configurations: ["Release"], # only toggle code signing settings for Release configurations
-          path: "ios-dev-poc/ios-dev-poc/ios-dev-poc.xcodeproj",
+          profile_name: "sigh_com.neovasolutions.ios-dev-poc_development_profile-name",
+          build_configurations: ["Release"], # only toggle code signing settings for Release configurations
+          path: "ios-dev-poc.xcodeproj",
           team_id: "2ZBVR8AP3W"
           
         )
