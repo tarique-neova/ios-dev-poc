@@ -36,13 +36,13 @@ platform :ios do
 
         update_code_signing_settings(
           use_automatic_signing: false,
-          targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
-          code_sign_identity: "Apple Development", # replace with name of code signing identity if different
-          bundle_identifier: "com.neovasolutions.ios-dev-poc",
-          profile_name: "match Development com.neovasolutions.ios-dev-poc",
-          build_configurations: ["Debug"], # only toggle code signing settings for Release configurations
-          path: "ios-dev-poc.xcodeproj",
-          team_id: "2ZBVR8AP3W"
+          # targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
+          # code_sign_identity: "Apple Development", # replace with name of code signing identity if different
+          # bundle_identifier: "com.neovasolutions.ios-dev-poc",
+          # profile_name: "match Development com.neovasolutions.ios-dev-poc",
+          # build_configurations: ["Debug"], # only toggle code signing settings for Release configurations
+          # path: "ios-dev-poc.xcodeproj",
+          # team_id: "2ZBVR8AP3W"
           
         )
 
