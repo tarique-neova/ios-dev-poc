@@ -62,10 +62,19 @@ platform :ios do
   )
 
     # Build your iOS app
-    gym(scheme: "ios-dev-poc",
-        export_method: "app-store",
-        xcodebuild_command(
-          command: "xcodebuild archive -project 'ios-dev-pocl.xcodeproj' -scheme 'ios-dev-poc' -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY=- AD_HOC_CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO -allowProvisioningUpdates -archivePath 'ios-dev-poc.xcarchive'")
+    gym(scheme: "YourScheme",  # Your Xcode scheme
+        export_method: "app-store",  # The export method (app-store, ad-hoc, package, etc.)
+        export_options: {
+        method: "app-store",  # The export method again (it should match the export_method above)
+        signingStyle: "automatic",  # Specify the signing style (manual or automatic)
+        uploadBitcode: true,
+        uploadSymbols: true,
+        compileBitcode: true,
+        provisioningProfiles: {
+          "com.neovasolutions.ios-dev-poc": "./resources/distribution.mobileprovision"  # Path to your provisioning profile
+        }
+      # Add other export options as needed
+     }
     )
     pilot(api_key: api_key)
   end
