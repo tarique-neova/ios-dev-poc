@@ -4,11 +4,43 @@ jobs:
   build-and-test:
     macos:
       xcode: 15.0.1
+    environment:
+      FL_OUTPUT_DIR: output
     steps:
       - checkout
-      - run: xcodebuild archive -project "ios-dev-poc.xcodeproj" -scheme "ios-dev-poc" -destination generic/platform=iOS CODE_SIGN_IDENTITY=- AD_HOC_CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO -allowProvisioningUpdates -archivePath ios-dev-poc.xcarchive
+      - run: bundle install
+      - run: bundle exec gem install pry
+      - run: bundle exec fastlane use_cert
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane upload_release
+      - store_artifacts:
+          path: output
+      - store_test_results:
+          path: output/scan
+
+  adhoc:
+    macos:
+      xcode: 14.2.0
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: adhoc
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+      - store_artifacts:
+          path: output
 
 workflows:
-  archive:
+  build-test-adhoc:
     jobs:
       - build-and-test
+      - adhoc:
+          filters:
+            branches:
+              only: development
+          requires:
+            - build-and-test
