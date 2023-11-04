@@ -67,9 +67,13 @@ platform :ios do
         export_options: {
         method: "app-store",  # The export method again (it should match the export_method above)
         signingStyle: "manual",  # Specify the signing style (manual or automatic)
+        clean: true
         uploadBitcode: true,
         uploadSymbols: true,
         compileBitcode: true,
+      # skip_codesigning: true,
+        skip_profile_detection: true
+        codesigning_identity: "iPhone Distribution: Shashi Ranjan (2ZBVR8AP3W)"
         provisioningProfiles: {
           "com.neovasolutions.ios-dev-poc": "./resources/distribution.mobileprovision"  # Path to your provisioning profile
         }
