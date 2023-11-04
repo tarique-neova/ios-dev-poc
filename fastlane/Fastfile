@@ -45,7 +45,8 @@ end
   )
 
     # Build your iOS app
-    gym(scheme: "ios-dev-poc")
+    gym(scheme: "ios-dev-poc",
+        skip_profile_detection: true)
     # Upload the app to App Store Connect
     pilot(api_key: api_key)
   end
