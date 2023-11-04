@@ -63,7 +63,7 @@ platform :ios do
 
     # Build your iOS app
     gym(scheme: "ios-dev-poc",
-        # skip_profile_detection: true,
+        skip_profile_detection: true,
         configuration: "Development",
         export_options: {
         method: "development",
