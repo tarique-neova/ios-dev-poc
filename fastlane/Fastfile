@@ -65,10 +65,10 @@ platform :ios do
     gym(scheme: "ios-dev-poc",  # Your Xcode scheme
         export_method: "app-store", 
         clean: true,
-        xcargs: "CODE_SIGN_IDENTITY='' AD_HOC_CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO -allowProvisioningUpdates",
+        xcargs: "AD_HOC_CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO -allowProvisioningUpdates",
         skip_codesigning: true,
         skip_profile_detection: true,
-        codesigning_identity: "iPhone Distribution: Shashi Ranjan (2ZBVR8AP3W)",
+     #   codesigning_identity: "iPhone Distribution: Shashi Ranjan (2ZBVR8AP3W)",
     )
     pilot(api_key: api_key)
   end
