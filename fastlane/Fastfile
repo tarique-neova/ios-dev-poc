@@ -64,11 +64,11 @@ platform :ios do
     # Build your iOS app
     gym(scheme: "ios-dev-poc",
         # skip_profile_detection: true,
-        configuration: "Development",
+        configuration: "Release",
         export_options: {
         method: "development",
           provisioningProfiles: {
-              "com.neovasolutions.ios-dev-poc" => "match Development" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
+              "com.neovasolutions.ios-dev-poc" => "match Development com.neovasolutions.ios-dev-poc" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
           }
         }
         
