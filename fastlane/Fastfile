@@ -63,14 +63,14 @@ platform :ios do
 
     # Build your iOS app
     gym(scheme: "ios-dev-poc",  # Your Xcode scheme
-        export_method: "app-store", 
+        export_method: "ad-hoc", 
         clean: true,
       # skip_codesigning: true,
         skip_profile_detection: true,
         codesigning_identity: "iPhone Distribution: Shashi Ranjan (2ZBVR8AP3W)",
         export_options: {
-        method: "app-store",  # The export method again (it should match the export_method above)
-        signingStyle: "manual",  # Specify the signing style (manual or automatic)
+        method: "ad-hoc",  # The export method again (it should match the export_method above)
+        signingStyle: "automatic",  # Specify the signing style (manual or automatic)
         uploadBitcode: true,
         uploadSymbols: true,
         compileBitcode: true,
