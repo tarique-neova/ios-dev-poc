@@ -5,31 +5,48 @@ platform :ios do
     setup_circle_ci
   end
 
-lane :use_cert do
+  lane :use_cert do
 
-  app_store_connect_api_key(
-    key_id: "WXYFK8CF5D",
-    issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
-    key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
-  )
-  match(
-    type: "development",
-    readonly: false,
-    force_for_new_devices: false,
-    app_identifier: "com.neovasolutions.ios-dev-poc",
-    git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
-  )
+      app_store_connect_api_key(
+        key_id: "WXYFK8CF5D",
+        issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
+        key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
+      )
+      match(
+        type: "development",
+        readonly: false,
+        force_for_new_devices: false,
+        app_identifier: "com.neovasolutions.ios-dev-poc",
+        git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
+      )
 
-  match(
-    type: "appstore",
-    readonly: false,
-    force_for_new_devices: false,
-    app_identifier: "com.neovasolutions.ios-dev-poc",
-    git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
-  )
+      match(
+        type: "appstore",
+        readonly: false,
+        force_for_new_devices: false,
+        app_identifier: "com.neovasolutions.ios-dev-poc",
+        git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
+      )
   
-  # Add other actions related to your lane if needed
-end
+    # Add other actions related to your lane if needed
+  end
+
+  desc "Update Signing Setting"
+    lane :update_sign_set do
+
+        update_code_signing_settings(
+          use_automatic_signing: true,
+          targets: ["ios-dev-poc"], # specify which targets to update code signing settings for
+          # code_sign_identity: "Apple Distribution", # replace with name of code signing identity if different
+          bundle_identifier: "com.neovasolutions.ios-dev-poc",
+          # profile_name: "fastlane-generated-dist-profile",
+          # build_configurations: ["Release"], # only toggle code signing settings for Release configurations
+          path: "ios-dev-poc/ios-dev-poc/ios-dev-poc.xcodeproj",
+          team_id: "2ZBVR8AP3W"
+          
+        )
+
+    end
 
 
   lane :upload_release do
