@@ -9,7 +9,6 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: bundle exec fastlane spaceauth -u cloudsupport@neovasolutions.com
       - run:
           name: Fastlane
           command: bundle exec fastlane upload_release
