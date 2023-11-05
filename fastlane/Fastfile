@@ -42,6 +42,7 @@ platform :ios do
           output_name: "neovapoc.ipa",
           configuration: "Release",
           xcargs: "-allowProvisioningUpdates",
+          clean: true
           # export_options: {
           #   method: export_method,
           #   provisioningProfiles: {
