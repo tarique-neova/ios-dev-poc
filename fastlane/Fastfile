@@ -32,7 +32,7 @@ platform :ios do
   
         app_identifier = "com.neovasolutions.ios-dev-poc"
        
-        profile_name = "match AppStore com.neovasolutions.ios-dev-poc"
+        profile_name = "match Development com.neovasolutions.ios-dev-poc"
         output_name = "neovapoc.ipa" 
         export_method = "app-store" 
        
