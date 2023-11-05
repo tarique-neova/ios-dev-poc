@@ -13,7 +13,7 @@ jobs:
       - run: bundle exec fastlane use_cert
       - run:
           name: Fastlane
-          command: bundle exec fastlane upload_release
+          command: bundle exec fastlane build_release
       - store_artifacts:
           path: output
       - store_test_results:
