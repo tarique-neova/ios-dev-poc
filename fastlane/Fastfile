@@ -39,6 +39,7 @@ platform :ios do
           scheme: "ios-dev-poc", # replace with name of your project’s scheme
           output_name: "neovapoc.ipa",
           configuration: "Release",
+          xcargs: "-allowProvisioningUpdates",
           # export_options: {
           #   method: export_method,
           #   provisioningProfiles: {
