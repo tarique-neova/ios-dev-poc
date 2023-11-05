@@ -30,27 +30,14 @@ platform :ios do
   
   lane :build_release do |options|
   
-        app_identifier = "com.neovasolutions.ios-dev-poc"
-       
-        profile_name = "match Development com.neovasolutions.ios-dev-poc"
-        output_name = "neovapoc.ipa" 
-        export_method = "app-store" 
-       
+        app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
           use_automatic_signing: true,
-          # targets: ["ios-dev-poc"], 
-          # code_sign_identity: "Apple Development", 
-          # bundle_identifier: app_identifier,
-          # profile_name: profile_name,
-          # build_configurations: ["Release"],
-          # path: "./ios-dev-poc.xcodeproj",
-          # team_id: "2ZBVR8AP3W"
-  
         )
        
         gym(
           scheme: "ios-dev-poc", # replace with name of your project’s scheme
-          output_name: output_name,
+          output_name: "neovapoc.ipa",
           configuration: "Release",
           # export_options: {
           #   method: export_method,
