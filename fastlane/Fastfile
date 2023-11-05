@@ -43,12 +43,12 @@ platform :ios do
           configuration: "Release",
           xcargs: "-allowProvisioningUpdates",
           clean: true
-          # export_options: {
-          #   method: export_method,
-          #   provisioningProfiles: {
-          #     app_identifier => profile_name # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
-          #   }
-          # }
+          export_options: {
+            method: export_method,
+            provisioningProfiles: {
+              app_identifier => "match AppStore com.neovasolutions.ios-dev-poc" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
+            }
+          }
         )
   end  
 end
