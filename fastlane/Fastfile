@@ -30,7 +30,7 @@ platform :ios do
   
   lane :build_release do |options|
 
-        xcode_select("/Applications/Xcode-8.3.2.app")
+        xcode_select("/Applications/Xcode-15.0.1.app")
   
         app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
