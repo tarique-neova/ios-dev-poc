@@ -32,7 +32,7 @@ platform :ios do
   
         app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
-          use_automatic_signing: true,
+          use_automatic_signing: false,
         )
        
         gym(
