@@ -89,7 +89,7 @@ platform :ios do
       copyright: copyright("#{Time.now.year} Shashi Ranjan),
       privacy_url: privacy_url_path,   
       support_url: support_url_path,
-      languages: "en-US"
+      languages: [ "en-US", "en-GB" ]
     )
     
   end
