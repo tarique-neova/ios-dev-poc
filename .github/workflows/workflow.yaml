@@ -3,7 +3,7 @@ name: Mobile CICD
 on:
   push:
     branches:
-      - circle-ci-v2
+      - circle-ci-v21
 
 jobs:
   submit_ios_app_to_app_store:
