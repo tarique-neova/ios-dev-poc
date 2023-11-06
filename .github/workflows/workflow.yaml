@@ -3,7 +3,7 @@ name: Mobile CICD
 on:
   push:
     branches:
-      - circle-ci-v2
+      - circle-ci-v3
 
 jobs:
   submit_ios_app_to_app_store:
@@ -24,6 +24,12 @@ jobs:
 
       - name: Build, Archive And Export App
         run: bundle exec fastlane build_release
+
+      - name: list folder structure
+        run: |
+          brew install tree
+          tree 
+
 
       - name: Upload iOS App To App Store
         run: bundle exec fastlane upload_ipa_to_store
