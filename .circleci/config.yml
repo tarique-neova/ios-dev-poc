@@ -1,42 +1,31 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  build-and-test:
+  submit_ios_app_to_app_store:
     macos:
       xcode: 15.0.0
     environment:
       FL_OUTPUT_DIR: output
     steps:
       - checkout
-      - run: bundle install
-      - run: bundle exec gem install pry
-      - run: bundle exec fastlane use_cert
       - run:
-          name: Fastlane
+          name: Install Bundle
+          command: bundle install     
+      - run: 
+          name: Setup iOS Certificate And Profile
+          command: bundle exec fastlane use_cert
+      - run:
+          name: Build, Archive And Export App
           command: bundle exec fastlane build_release
       - store_artifacts:
           path: output
       - store_test_results:
           path: output/scan
-      - run: bundle exec fastlane upload_ipa_to_store
-      - run: cat fastlane/app_privacy_details.json       
-
-  # adhoc:
-  #   macos:
-  #     xcode: 14.2.0
-  #   environment:
-  #     FL_OUTPUT_DIR: output
-  #     FASTLANE_LANE: adhoc
-  #   steps:
-  #     - checkout
-  #     - run: bundle install
-  #     - run:
-  #         name: Fastlane
-  #         command: bundle exec fastlane $FASTLANE_LANE
-  #     - store_artifacts:
-  #         path: output
+      - run: 
+          name: Upload iOS App To App Store
+          command: bundle exec fastlane upload_ipa_to_store
 
 workflows:
   build-test-adhoc:
     jobs:
-      - build-and-test
+      - submit_ios_app_to_app_store
