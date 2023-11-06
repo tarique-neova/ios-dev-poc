@@ -90,7 +90,14 @@ platform :ios do
       api_key: api_key,
       precheck_include_in_app_purchases: false,
       submit_for_review: true,
-      submission_information: { export_compliance_uses_encryption: false }
+      submission_information: { 
+        export_compliance_uses_encryption: false,
+        add_id_info_uses_idfa: true,
+        add_id_info_serves_ads: false,
+        add_id_info_tracks_install: true,
+        add_id_info_tracks_action: true,
+        add_id_info_limits_tracking: true
+        }
     )
   end
 end
