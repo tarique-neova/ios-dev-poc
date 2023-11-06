@@ -90,8 +90,7 @@ platform :ios do
       precheck_include_in_app_purchases: false,
       copyright: "@ 2023 NEOVA TECH SOLUTIONS INC. ALL RIGHTS RESERVED.",
       privacy_url: privacy_url_path,   
-      support_url: support_url_path,
-      languages: "en-US"
+      support_url: support_url_path
     )
     
   end
