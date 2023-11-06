@@ -77,18 +77,16 @@ platform :ios do
 
     deliver(
       build_number: "5",
+      name: "ios-dev-poc",
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
-      skip_metadata: true,
-      skip_screenshots: true,
+      skip_metadata: false,
+      skip_screenshots: false,
       skip_binary_upload: false,
       automatic_release: true ,
       api_key: api_key,
-      precheck_include_in_app_purchases: false,
-      copyright: "#{Time.now.year} Shashi Ranjan",
-      privacy_url: privacy_url_path,   
-      support_url: support_url_path
+      precheck_include_in_app_purchases: false
     )
   end
 end
