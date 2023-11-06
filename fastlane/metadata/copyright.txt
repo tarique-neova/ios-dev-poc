@@ -1,1 +1,1 @@
-@ 2023 NEOVA TECH SOLUTIONS INC. ALL RIGHTS RESERVED.
+copyright("#{Time.now.year} Shashi Ranjan")
