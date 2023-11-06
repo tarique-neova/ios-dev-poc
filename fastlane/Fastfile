@@ -85,7 +85,8 @@ platform :ios do
       precheck_include_in_app_purchases: false,
       copyright: "./metadata/copyright.txt",
       privacy_url: privacy_url_path,   
-      support_url: support_url_path
+      support_url: support_url_path,
+      languages: "en-US"
     )
     
   end
