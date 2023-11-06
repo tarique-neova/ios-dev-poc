@@ -90,7 +90,5 @@ platform :ios do
       privacy_url: privacy_url_path,   
       support_url: support_url_path
     )
-    
   end
 end
-  
