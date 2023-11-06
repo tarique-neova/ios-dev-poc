@@ -79,6 +79,7 @@ platform :ios do
     }
 
     deliver(
+      ipa: "./neovapoc.ipa",
       name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",

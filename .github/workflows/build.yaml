@@ -3,14 +3,14 @@ name: Build, Test, and Upload to App Store
 on:
   push:
     branches:
-      - circle-ci-v2
+      - circle-ci-v4
 
 jobs:
   submit_ios_app_to_app_store:
     runs-on: macos-13
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout repository
         uses: actions/checkout@v2
