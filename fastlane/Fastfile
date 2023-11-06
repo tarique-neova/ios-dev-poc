@@ -88,8 +88,7 @@ platform :ios do
       precheck_include_in_app_purchases: false,
       copyright: copyright("#{Time.now.year} Shashi Ranjan),
       privacy_url: privacy_url_path,   
-      support_url: support_url_path,
-      languages: [ "en-US", "en-GB" ]
+      support_url: support_url_path
     )
     
   end
