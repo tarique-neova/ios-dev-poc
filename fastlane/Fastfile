@@ -83,7 +83,7 @@ platform :ios do
       automatic_release: true ,
       api_key: api_key,
       precheck_include_in_app_purchases: false,
-      copyright: "#{Time.now.year} Shashi Ranjan",
+      copyright: "2022 Shashi Ranjan",
       privacy_url: privacy_url_path,   
       support_url: support_url_path
     )
