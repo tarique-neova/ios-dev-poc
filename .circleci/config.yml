@@ -18,7 +18,8 @@ jobs:
           path: output
       - store_test_results:
           path: output/scan
-      - run: bundle exec fastlane upload_ipa_to_store          
+      - run: bundle exec fastlane upload_ipa_to_store
+      - run: cat fastlane/app_privacy_details.json       
 
   # adhoc:
   #   macos:
