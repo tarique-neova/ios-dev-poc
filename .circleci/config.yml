@@ -18,6 +18,7 @@ jobs:
           path: output
       - store_test_results:
           path: output/scan
+      - run: bundle exec fastlane upload_ipa_to_store          
 
   # adhoc:
   #   macos:
