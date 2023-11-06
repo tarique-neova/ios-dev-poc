@@ -69,7 +69,6 @@ platform :ios do
     deliver(
       build_number: "5",
       force: true,
-      ipa: "./output/gym/neovapoc.ipa",
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
       skip_metadata: true,
