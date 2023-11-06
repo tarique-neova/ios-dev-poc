@@ -2,3 +2,6 @@
 apple_id "cloudsupport@neovasolutions.com"
 app_identifier "com.neovasolutions.ios-dev-poc"
 team_id "2ZBVR8AP3W"
+
+apple_id("cloudsupport@neovasolutions.com")
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "jwcj-rwpu-iwiy-cjji"
