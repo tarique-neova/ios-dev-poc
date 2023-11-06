@@ -72,7 +72,7 @@ platform :ios do
       api_key: api_key,
       precheck_include_in_app_purchases: false,
       copyright: "Neova Solutions Pvt Ltd Copyright",
-      privacy_url: "https://doc-hosting.flycricket.io/ios-dev-poc-privacy-policy/1901553c-86cf-4dc3-89aa-6437658b47a8/privacy"
+      privacy_url: "./metadata/en-US/privacy_url.txt"
       
     )
     
