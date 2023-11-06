@@ -66,6 +66,12 @@ platform :ios do
       }
     }
 
+    app_name_path = {
+      "en-US" => {
+        app_name: File.read("./metadata/en-US/name.txt").strip
+      }
+    }
+
     support_url_path = {
       "en-US" => {
         support_url: File.read("./metadata/en-US/support_url.txt").strip
@@ -77,7 +83,7 @@ platform :ios do
 
     deliver(
       build_number: "5",
-      name: "ios-dev-poc",
+      name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
