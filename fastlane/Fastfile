@@ -60,6 +60,11 @@ platform :ios do
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
 
+    privacy_url_path = {
+      "en-US" => {
+        privacy_url: File.read("./metadata/en-US/privacy_url.txt").strip
+      }
+
     deliver(
       force: true,
       ipa: "./output/gym/neovapoc.ipa",
@@ -72,7 +77,7 @@ platform :ios do
       api_key: api_key,
       precheck_include_in_app_purchases: false,
       copyright: "Neova Solutions Pvt Ltd Copyright",
-      privacy_url: "./metadata/en-US/privacy_url.txt"
+      privacy_url: privacy_url_path
       
     )
     
