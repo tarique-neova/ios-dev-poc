@@ -6,10 +6,10 @@ platform :ios do
   end
 
   lane :use_cert do
-      app_store_connect_api_key(
-        key_id: ${{ secrets.APPLE_KEY_ID }},
-        issuer_id: ${{ secrets.APPLE_KEY_ISSUER_ID }},
-        key_content: ${{ secrets.APPLE_KEY_CONTENT }}
+    api_key = app_store_connect_api_key(
+        key_id: "WXYFK8CF5D",
+        issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
+        key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
       match(
         type: "development",
