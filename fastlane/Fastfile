@@ -60,13 +60,6 @@ platform :ios do
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
 
-      upload_app_privacy_details_to_app_store(
-        username: "cloudsupport@neovasolutions.com",
-        team_name: "2ZBVR8AP3W",
-        app_identifier: "com.neovasolutions.ios-dev-poc",
-        json_path: "fastlane/app_privacy_details.json"
-      )
-
     deliver(
       force: true,
       ipa: "./output/gym/neovapoc.ipa",
