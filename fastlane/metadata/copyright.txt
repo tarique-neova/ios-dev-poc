@@ -1,1 +1,1 @@
-copyright("#{Time.now.year} Shashi Ranjan")
+2023 Shashi Ranjan
