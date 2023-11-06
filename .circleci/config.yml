@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  build-and-test:
+  submit_ios_app_to_app_store:
     macos:
       xcode: 15.0.0
     environment:
@@ -15,7 +15,7 @@ jobs:
           name: Setup iOS Certificate And Profile
           command: bundle exec fastlane use_cert
       - run:
-          name: Fastlane
+          name: Build, Archive And Export App
           command: bundle exec fastlane build_release
       - store_artifacts:
           path: output
@@ -28,4 +28,4 @@ jobs:
 workflows:
   build-test-adhoc:
     jobs:
-      - build-and-test
+      - submit_ios_app_to_app_store
