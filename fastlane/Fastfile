@@ -65,14 +65,14 @@ platform :ios do
       ipa: "./gym/neovapoc.ipa",
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
-        skip_metadata: true,
-        skip_screenshots: true,
-        skip_binary_upload: false,
-        automatic_release: true ,
-        api_key: api_key,
-        precheck_include_in_app_purchases: false,
-        copyright: ./metadata/copyright.txt,
-        privacy_url: ./metadata/privacy_url.txt
+      skip_metadata: true,
+      skip_screenshots: true,
+      skip_binary_upload: false,
+      automatic_release: true ,
+      api_key: api_key,
+      precheck_include_in_app_purchases: false,
+      copyright: "Neova Solutions Pvt Ltd Copyright",
+      privacy_url: "https://doc-hosting.flycricket.io/ios-dev-poc-privacy-policy/1901553c-86cf-4dc3-89aa-6437658b47a8/privacy"
       
     )
     
