@@ -67,6 +67,7 @@ platform :ios do
     }
 
     deliver(
+      build_number: "5",
       force: true,
       ipa: "./output/gym/neovapoc.ipa",
       app_identifier: "com.neovasolutions.ios-dev-poc",
@@ -78,8 +79,7 @@ platform :ios do
       api_key: api_key,
       precheck_include_in_app_purchases: false,
       copyright: "Neova Solutions Pvt Ltd Copyright",
-      privacy_url: privacy_url_path
-      
+      privacy_url: privacy_url_path     
     )
     
   end
