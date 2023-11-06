@@ -72,10 +72,6 @@ platform :ios do
       }
     }
 
-    copyright_path = {
-      copyright: File.read("./metadata/copyright.txt").strip
-    }
-
     deliver(
       build_number: "5",
       force: true,
@@ -87,7 +83,7 @@ platform :ios do
       automatic_release: true ,
       api_key: api_key,
       precheck_include_in_app_purchases: false,
-      copyright: copyright_path,
+      copyright: "./metadata/copyright.txt",
       privacy_url: privacy_url_path,   
       support_url: support_url_path
     )
