@@ -81,7 +81,6 @@ platform :ios do
     }
 
     deliver(
-      app_version: "1.0",
       name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
@@ -92,7 +91,7 @@ platform :ios do
       automatic_release: true ,
       api_key: api_key,
       precheck_include_in_app_purchases: false,
-      submit_for_review: true,
+      # submit_for_review: true,
       submission_information: { 
         export_compliance_uses_encryption: false,
         add_id_info_uses_idfa: true,
