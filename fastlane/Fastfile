@@ -75,9 +75,6 @@ platform :ios do
     support_url_path = {
       "en-US" => {
         support_url: File.read("./metadata/en-US/support_url.txt").strip
-      },
-      "en-GB" => {
-        support_url: File.read("./metadata/en-GB/support_url.txt").strip
       }
     }
 
