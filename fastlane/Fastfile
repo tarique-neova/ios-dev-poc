@@ -3,6 +3,7 @@ platform :ios do
 
   before_all do
     setup_circle_ci
+    ENV['FASTLANE_LOCALE'] = 'en-US'
   end
 
   lane :use_cert do
@@ -45,6 +46,7 @@ platform :ios do
           clean: true,
           export_options: {
             method: "app-store",
+            locale: "en-US",
             provisioningProfiles: {
               app_identifier => "match AppStore com.neovasolutions.ios-dev-poc" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
             }
