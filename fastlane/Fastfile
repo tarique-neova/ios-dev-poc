@@ -86,7 +86,7 @@ platform :ios do
       automatic_release: true ,
       api_key: api_key,
       precheck_include_in_app_purchases: false,
-      copyright: "@ 2023 NEOVA TECH SOLUTIONS INC. ALL RIGHTS RESERVED.",
+      copyright: copyright("#{Time.now.year} Shashi Ranjan),
       privacy_url: privacy_url_path,   
       support_url: support_url_path,
       languages: "en-US"
