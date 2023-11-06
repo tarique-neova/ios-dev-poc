@@ -64,6 +64,7 @@ platform :ios do
       "en-US" => {
         privacy_url: File.read("./metadata/en-US/privacy_url.txt").strip
       }
+    }
 
     deliver(
       force: true,
