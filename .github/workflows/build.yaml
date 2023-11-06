@@ -28,20 +28,7 @@ jobs:
 
       - name: Build, Archive And Export App
         run: bundle exec fastlane build_release
-        working-directory: ${{ github.workspace }}
 
       - name: Upload iOS App To App Store
         run: bundle exec fastlane upload_ipa_to_store
-        working-directory: ${{ github.workspace }}
 
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: app-artifacts
-          path: output
-
-      - name: Archive test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: output/scan
