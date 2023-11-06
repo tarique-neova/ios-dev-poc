@@ -85,11 +85,12 @@ platform :ios do
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
       skip_metadata: false,
-      skip_screenshots: false,
+      skip_screenshots: true,
       skip_binary_upload: false,
       automatic_release: true ,
       api_key: api_key,
-      precheck_include_in_app_purchases: false
+      precheck_include_in_app_purchases: false,
+      submit_for_review: true
     )
   end
 end
