@@ -64,9 +64,7 @@ platform :ios do
       app_identifier: "com.neovasolutions.ios-dev-poc",
       uses_non_exempt_encryption: true,
       ipa: "./output/gym/neovapoc.ipa",
-      build_number: increment_build_number({
-        build_number: latest_testflight_build_number + 1
-      })
+      build_number: "3"
     )
   end
 
