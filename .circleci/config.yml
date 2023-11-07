@@ -10,7 +10,10 @@ jobs:
       - checkout
       - run:
           name: Install Bundle
-          command: bundle install     
+          command: bundle install
+      - run: 
+          name: Increment App Version
+          command: bundle exec fastlane increment_version_num          
       - run: 
           name: Setup iOS Certificate And Profile
           command: bundle exec fastlane use_cert
