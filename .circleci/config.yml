@@ -13,7 +13,7 @@ jobs:
           command: bundle install
       - run: 
           name: Increment App Version
-          command: bundle exec fastlane increment_version_num          
+          command: bundle exec fastlane increment_build_num          
       - run: 
           name: Setup iOS Certificate And Profile
           command: bundle exec fastlane use_cert
