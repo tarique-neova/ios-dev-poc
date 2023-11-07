@@ -70,13 +70,12 @@ end
       )
 
     upload_to_testflight(
-      app_version: "2",
       api_key: api_key,
       app_identifier: "com.neovasolutions.ios-dev-poc",
-      uses_non_exempt_encryption: true,
+      uses_non_exempt_encryption: false,
       ipa: "./output/gym/neovapoc.ipa",
-      skip_waiting_for_build_processing: true
-      
+      skip_waiting_for_build_processing: true,
+      groups: "int_test"      
     )
   end
 
