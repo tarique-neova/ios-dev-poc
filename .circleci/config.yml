@@ -22,10 +22,13 @@ jobs:
           command: bundle exec fastlane build_release
       - store_artifacts:
           path: output
-      - store_test_results:
-          path: output/scan
+#      - store_test_results:
+#          path: output/scan
       - run: 
-          name: Upload iOS App To App Store
+          name: Upload App To TestFlight
+          command: bundle exec fastlane testflight_internal_test
+      - run: 
+          name: Submit iOS App For Review
           command: bundle exec fastlane upload_ipa_to_store
 
 workflows:
