@@ -89,7 +89,7 @@ platform :ios do
             "whatsNew" => "New features and bug fixes"
           }
         }
-      }
+      },
       beta_app_review_info: {
         contact_email: "cloudsupport@neovasolutionss.com",
         contact_first_name: "Shashi",
