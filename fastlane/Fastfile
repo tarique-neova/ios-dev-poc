@@ -79,7 +79,6 @@ platform :ios do
       app_identifier: "com.neovasolutions.ios-dev-poc",
       uses_non_exempt_encryption: false,
       ipa: "./output/gym/neovapoc.ipa",
-      skip_waiting_for_build_processing: true,
       groups: "int_test"      
     )
   end
@@ -91,11 +90,6 @@ platform :ios do
         issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
-
-   build_num = increment_build_number(
-      build_number: "$CIRCLE_BUILD_NUM",
-      xcodeproj: "ios-dev-poc.xcodeproj"
-    )
 
     privacy_url_path = {
       "en-US" => {
@@ -128,7 +122,6 @@ platform :ios do
       api_key: api_key,
       precheck_include_in_app_purchases: false,
       submit_for_review: true,
-      skip_app_version_update: true,
       submission_information: { 
         export_compliance_uses_encryption: false,
         add_id_info_uses_idfa: true,
