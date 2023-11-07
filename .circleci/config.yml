@@ -24,9 +24,9 @@ jobs:
       - run: 
           name: Upload App To TestFlight
           command: bundle exec fastlane testflight_internal_test          
-      - run: 
-          name: Upload iOS App To App Store
-          command: bundle exec fastlane upload_ipa_to_store
+      # - run: 
+      #     name: Upload iOS App To App Store
+      #     command: bundle exec fastlane upload_ipa_to_store
 
 workflows:
   build-test-adhoc:
