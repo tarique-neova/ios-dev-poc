@@ -65,7 +65,8 @@ platform :ios do
       uses_non_exempt_encryption: true,
       ipa: "./output/gym/neovapoc.ipa",
       build_number: "1",
-      app_version: "3"
+      app_version: "3",
+      expire_previous_build: true
     )
   end
 
