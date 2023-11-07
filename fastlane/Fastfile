@@ -91,7 +91,7 @@ platform :ios do
       },
       localized_app_info: {
         "en-US": {
-          feedback_email: "cloudsupport@neovasolutionss.com,
+          feedback_email: "cloudsupport@neovasolutionss.com",
           marketing_url: "https://doc-hosting.flycricket.io/ios-dev-poc-privacy-policy/1901553c-86cf-4dc3-89aa-6437658b47a8/privacy",
           privacy_policy_url: "https://doc-hosting.flycricket.io/ios-dev-poc-privacy-policy/1901553c-86cf-4dc3-89aa-6437658b47a8/privacy",
           description: "Default description"
