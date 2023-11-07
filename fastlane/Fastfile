@@ -36,9 +36,6 @@ end
   end       
   
   lane :build_release do |options|
-
-        # xcode_select("/Applications/Xcode-15.0.0.app")
-  
         app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
           use_automatic_signing: false,
@@ -58,9 +55,25 @@ end
           }
         )
   end
-  
-  lane :upload_ipa_to_store do
 
+  lane :testflight_internal_test do
+    api_key = app_store_connect_api_key(
+        key_id: "WXYFK8CF5D",
+        issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
+        key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
+      )
+
+    upload_to_testflight(
+      api_key: api_key,
+      app_identifier: "com.neovasolutions.ios-dev-poc",
+      uses_non_exempt_encryption: false,
+      ipa: "./output/gym/neovapoc.ipa",
+      skip_waiting_for_build_processing: true,
+      groups: "int_test"      
+    )
+  end
+
+  lane :upload_ipa_to_store do
     api_key = app_store_connect_api_key(
         key_id: "WXYFK8CF5D",
         issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
