@@ -1,17 +1,20 @@
 default_platform :ios
 platform :ios do
 
+## Setup CircleCI
   before_all do
     setup_circle_ci
   end
 
-lane :increment_build_num do
-  increment_build_number(
-    build_number: "$CIRCLE_BUILD_NUM",
-    xcodeproj: "ios-dev-poc.xcodeproj"
-  )
-end
+## Latest CircleCI build version number will be picked for testing
+  lane :increment_build_num do
+    increment_build_number(
+      build_number: "$CIRCLE_BUILD_NUM",
+      xcodeproj: "ios-dev-poc.xcodeproj"
+    )
+  end
 
+## This step will search for existing 'Development and App Store Certififcates' in the Apple Developer Account. If found will use those else will create new ones.
   lane :use_cert do
     api_key = app_store_connect_api_key(
         key_id: "WXYFK8CF5D",
@@ -34,7 +37,8 @@ end
         git_url: "https://github.com/tarique-neova/ios-dev-poc.git",
       )
   end       
-  
+
+## Build, Archive and Export .ipa file to output folder
   lane :build_release do |options|
         app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
@@ -56,6 +60,7 @@ end
         )
   end
 
+## Deploy iOS app to TestFlight for internal tessting
   lane :testflight_internal_test do
     api_key = app_store_connect_api_key(
         key_id: "WXYFK8CF5D",
@@ -63,7 +68,13 @@ end
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
 
+   build_num = increment_build_number(
+      build_number: "$CIRCLE_BUILD_NUM",
+      xcodeproj: "ios-dev-poc.xcodeproj"
+    )
+
     upload_to_testflight(
+      build_number: build_num,
       api_key: api_key,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       uses_non_exempt_encryption: false,
@@ -73,12 +84,18 @@ end
     )
   end
 
+## Submit iOS app for review
   lane :upload_ipa_to_store do
     api_key = app_store_connect_api_key(
         key_id: "WXYFK8CF5D",
         issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
+
+   build_num = increment_build_number(
+      build_number: "$CIRCLE_BUILD_NUM",
+      xcodeproj: "ios-dev-poc.xcodeproj"
+    )
 
     privacy_url_path = {
       "en-US" => {
@@ -99,6 +116,7 @@ end
     }
 
     deliver(
+      build_number: build_num,
       name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
