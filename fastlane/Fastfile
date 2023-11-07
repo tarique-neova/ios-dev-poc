@@ -62,6 +62,20 @@ end
         issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
         key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
       )
+    
+      localized_app_info: {
+        "en-US": {
+          feedback_email: "<email>",
+          marketing_url: "",
+          privacy_policy_url: "",
+          description: "App Beta Version",
+        }
+      }
+      localized_build_info: {
+        "en-US": {
+          whats_new: "<changelog>",
+        }
+      }
 
     upload_to_testflight(
       api_key: api_key,
