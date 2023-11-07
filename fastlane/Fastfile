@@ -66,6 +66,7 @@ platform :ios do
       app_identifier: "com.neovasolutions.ios-dev-poc",
       uses_non_exempt_encryption: true
     )
+  end
 
   lane :upload_ipa_to_store do
 
