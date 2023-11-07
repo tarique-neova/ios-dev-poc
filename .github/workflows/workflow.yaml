@@ -3,7 +3,7 @@ name: Mobile CICD
 on:
   push:
     branches:
-      - testflight_deployment
+      - testfight_deployment
 
 jobs:
   submit_ios_app_to_app_store:
