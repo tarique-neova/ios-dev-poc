@@ -77,19 +77,10 @@ platform :ios do
       build_number: build_num,
       api_key: api_key,
       app_identifier: "com.neovasolutions.ios-dev-poc",
-      uses_non_exempt_encryption: false,
+      uses_non_exempt_encryption: true,
       ipa: "./output/gym/neovapoc.ipa",
       groups: "int_test",
       skip_waiting_for_build_processing: true,
-      beta_app_localization: {
-        primary_bundle_id: "com.neovasolutions.ios-dev-poc",
-        version: "1.0",
-        localizations: {
-          'en-US' => {
-            "whatsNew" => "New features and bug fixes"
-          }
-        }
-      },
       beta_app_review_info: {
         contact_email: "cloudsupport@neovasolutionss.com",
         contact_first_name: "Shashi",
