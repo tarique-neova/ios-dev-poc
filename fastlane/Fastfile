@@ -5,6 +5,10 @@ platform :ios do
     setup_circle_ci
   end
 
+increment_build_number(
+  build_number: "$CIRCLE_BUILD_NUM"
+)
+
   lane :use_cert do
     api_key = app_store_connect_api_key(
         key_id: "WXYFK8CF5D",
@@ -29,14 +33,10 @@ platform :ios do
   end       
   
   lane :build_release do |options|
-
-        # xcode_select("/Applications/Xcode-15.0.0.app")
-  
         app_identifier = "com.neovasolutions.ios-dev-poc"       
         update_code_signing_settings(
           use_automatic_signing: false,
-        )
-       
+        )       
         gym(
           scheme: "ios-dev-poc", # replace with name of your project’s scheme
           output_name: "neovapoc.ipa",
@@ -65,7 +65,8 @@ platform :ios do
       api_key: api_key,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       uses_non_exempt_encryption: true,
-      ipa: "./output/gym/neovapoc.ipa"
+      ipa: "./output/gym/neovapoc.ipa",
+      build_number: build_number
     )
   end
 
