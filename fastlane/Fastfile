@@ -133,7 +133,7 @@ platform :ios do
     }
 
     deliver(
-      build_number: build_num,
+      app_version: "1.0",
       name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
